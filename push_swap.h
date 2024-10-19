@@ -7,9 +7,10 @@ typedef struct node {
 	struct node *prev;
 } t_node;
 
-void printList(t_node *root);
-void	err(void);
-void addNode(t_node **head_ptr, int n);
+void print_list(t_node *root);
+void	print_err_and_exit(void);
+void add_node(t_node **head_ptr, int n);
+void rm_node(t_node **head_ptr);
 
 /*
 sa (swap a): Swap the first 2 elements at the top of stack a.

@@ -12,14 +12,16 @@ void main() {
 	//lista->next = lista;
 	//lista->prev = lista;
 
-	addNode(&lista, 42);
-	addNode(&lista, 1);
-	addNode(&lista, 2);
-	printList(lista);
+	add_node(&lista, 42);
+	add_node(&lista, 1);
+	add_node(&lista, 2);
+	print_list(lista);
+	rm_node(&lista);
+	rm_node(&lista);
+	print_list(lista);
 }
 
 
-//TODO addNode, rmNode
 //TODO pushA pushB swapA swapB ..
 //TODO shiftA shiftB revA revB ..
 

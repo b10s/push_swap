@@ -1,45 +1,61 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aenshin <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/19 23:23:40 by aenshin           #+#    #+#             */
+/*   Updated: 2024/10/19 23:27:20 by aenshin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "./push_swap.h"
 
-void printList(t_node *root) {
-	t_node *node;
+void	print_list(t_node *root)
+{
+	t_node	*node;
+
 	node = root;
-	while(node != NULL) {
+	while (node != NULL)
+	{
 		//TODO my printf
 		printf("%d\n", node->val);
 		node = node->prev;
-		if (node == root) {
-			break;
-		}
+		if (node == root)
+			break ;
 	}
 }
 
-void	err(void)
+void	print_err_and_exit(void)
 {
 	//TODO use my printf
 	// pass message? (read PDF)
 	printf("Error\n");
+	exit(1);
 }
 
 //TODO return err if can't handle?
 // or exit immediately with Error msg
-void addNode(t_node **head_ptr, int n)
+void	add_node(t_node **head_ptr, int n)
 {
-	t_node *node;
-	t_node *head;
+	t_node	*node;
+	t_node	*head;
 
 	if (head_ptr == NULL)
-		err();
+		print_err_and_exit();
 	head = *head_ptr;
 	node = malloc(sizeof(t_node));
 	if (node == NULL)
-		err();
+		print_err_and_exit();
 	node->val = n;
 	if (head == NULL)
 	{
 		head = node;
 		node->next = node;
 		node->prev = node;
-	} else
+	}
+	else
 	{
 		head->next->prev = node;
 		node->next = head->next;
@@ -48,4 +64,24 @@ void addNode(t_node **head_ptr, int n)
 		head = node;
 	}
 	*head_ptr = node;
+}
+
+void	rm_node(t_node **head_ptr)
+{
+	t_node	*head;
+
+	if (head_ptr == NULL)
+		print_err_and_exit();
+	head = *head_ptr;
+	if (head == NULL)
+		print_err_and_exit();
+	if (head->prev == head)
+		*head_ptr = NULL;
+	else
+	{
+		head->prev->next = head->next;
+		head->next->prev = head->prev;
+		*head_ptr = head->prev;
+	}
+	free(head);
 }
