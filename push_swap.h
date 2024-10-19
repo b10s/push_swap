@@ -6,7 +6,7 @@
 /*   By: aenshin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 23:30:59 by aenshin           #+#    #+#             */
-/*   Updated: 2024/10/19 23:54:02 by aenshin          ###   ########.fr       */
+/*   Updated: 2024/10/20 00:07:53 by aenshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ void	print_err_and_exit(void);
 void	add_node(t_node **head_ptr, int n);
 int		rm_node(t_node **head_ptr);
 void	swap(t_node **head_ptr);
+void	swapa(t_node **lista_ptr);
+void	swapb(t_node **lista_ptr);
+void	swapab(t_node **lista_ptr, t_node **listb_ptr);
 
 /*
 sa (swap a): Swap the first 2 elements at the top of stack a.

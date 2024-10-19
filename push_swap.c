@@ -6,7 +6,7 @@
 /*   By: aenshin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 23:30:53 by aenshin           #+#    #+#             */
-/*   Updated: 2024/10/20 00:00:32 by aenshin          ###   ########.fr       */
+/*   Updated: 2024/10/20 00:07:03 by aenshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void main() {
 	print_list(lista);
 
 	printf("swap\n");
-	swap(&lista);
+	swapa(&lista);
 	print_list(lista);
 }
 
