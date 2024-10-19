@@ -6,7 +6,7 @@
 /*   By: aenshin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 23:30:53 by aenshin           #+#    #+#             */
-/*   Updated: 2024/10/19 23:30:55 by aenshin          ###   ########.fr       */
+/*   Updated: 2024/10/20 00:00:32 by aenshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,21 @@ void main() {
 	t_node *lista;
 
 	lista = NULL;
-
-	//TODO err handling
-	//lista = malloc(sizeof(t_node));
-	//lista->val = 42;
-	//lista->next = lista;
-	//lista->prev = lista;
-
 	add_node(&lista, 42);
 	add_node(&lista, 1);
 	add_node(&lista, 2);
 	print_list(lista);
-	rm_node(&lista);
-	rm_node(&lista);
+
+	swap(&lista);
+	print_list(lista);
+
+	printf("rm node with val [%d]\n", rm_node(&lista));
+	printf("rm node with val [%d]\n", rm_node(&lista));
+	printf("rm node with val [%d]\n", rm_node(&lista));
+	print_list(lista);
+
+	printf("swap\n");
+	swap(&lista);
 	print_list(lista);
 }
 
@@ -40,6 +42,4 @@ void main() {
 //TODO try on 10 elements
 //TODO think about even/uneven lists
 
-
 //TODO Makefile with mine printf and libft
-

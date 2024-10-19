@@ -6,7 +6,7 @@
 /*   By: aenshin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 23:30:59 by aenshin           #+#    #+#             */
-/*   Updated: 2024/10/19 23:31:00 by aenshin          ###   ########.fr       */
+/*   Updated: 2024/10/19 23:54:02 by aenshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,11 @@ typedef struct node {
 	struct node *prev;
 } t_node;
 
-void print_list(t_node *root);
+void	print_list(t_node *root);
 void	print_err_and_exit(void);
-void add_node(t_node **head_ptr, int n);
-void rm_node(t_node **head_ptr);
+void	add_node(t_node **head_ptr, int n);
+int		rm_node(t_node **head_ptr);
+void	swap(t_node **head_ptr);
 
 /*
 sa (swap a): Swap the first 2 elements at the top of stack a.

@@ -6,7 +6,7 @@
 /*   By: aenshin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 23:23:40 by aenshin           #+#    #+#             */
-/*   Updated: 2024/10/19 23:27:20 by aenshin          ###   ########.fr       */
+/*   Updated: 2024/10/19 23:38:06 by aenshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@ void	print_list(t_node *root)
 	while (node != NULL)
 	{
 		//TODO my printf
-		printf("%d\n", node->val);
+		printf("%d -> ", node->val);
 		node = node->prev;
 		if (node == root)
 			break ;
 	}
+	printf("\n");
 }
 
 void	print_err_and_exit(void)
@@ -66,15 +67,17 @@ void	add_node(t_node **head_ptr, int n)
 	*head_ptr = node;
 }
 
-void	rm_node(t_node **head_ptr)
+int	rm_node(t_node **head_ptr)
 {
 	t_node	*head;
+	int			val;
 
 	if (head_ptr == NULL)
 		print_err_and_exit();
 	head = *head_ptr;
 	if (head == NULL)
 		print_err_and_exit();
+	val = head->val;
 	if (head->prev == head)
 		*head_ptr = NULL;
 	else
@@ -84,4 +87,5 @@ void	rm_node(t_node **head_ptr)
 		*head_ptr = head->prev;
 	}
 	free(head);
+	return (val);
 }

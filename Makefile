@@ -3,7 +3,7 @@ NAME := push_swap
 all: $(NAME)
 
 $(NAME):
-	cc -o push_swap push_swap.c utils.c
+	cc -o push_swap push_swap.c utils.c swap.c
 
 re: clean all
 
