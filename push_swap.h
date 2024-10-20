@@ -19,6 +19,7 @@ void	push_a(t_node **lista, t_node **listb);
 void	push_b(t_node **lista, t_node **listb);
 void	rotate_a(t_node **lista);
 void	rotate_b(t_node **listb);
+void	rotate_ab(t_node **listba, t_node **listb);
 
 /*
 sa (swap a): Swap the first 2 elements at the top of stack a.

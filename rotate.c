@@ -29,3 +29,11 @@ void	rotate_b(t_node **listb)
 	rotate(listb);
 }
 
+void	rotate_ab(t_node **lista, t_node **listb)
+{
+	//TODO use my printf
+	printf("rr\n");
+	rotate(lista);
+	rotate(listb);
+}
+
