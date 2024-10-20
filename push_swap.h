@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: aenshin <marvin@42.fr>                     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 23:30:59 by aenshin           #+#    #+#             */
-/*   Updated: 2024/10/20 00:07:53 by aenshin          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -27,6 +15,8 @@ void	swap(t_node **head_ptr);
 void	swapa(t_node **lista_ptr);
 void	swapb(t_node **lista_ptr);
 void	swapab(t_node **lista_ptr, t_node **listb_ptr);
+void	pusha(t_node **lista, t_node **listb);
+void	pushb(t_node **lista, t_node **listb);
 
 /*
 sa (swap a): Swap the first 2 elements at the top of stack a.

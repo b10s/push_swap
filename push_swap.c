@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: aenshin <marvin@42.fr>                     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 23:30:53 by aenshin           #+#    #+#             */
-/*   Updated: 2024/10/20 00:14:29 by aenshin          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "./push_swap.h"
 
 //TODO parse args
@@ -39,6 +27,15 @@ void main() {
 	print_list(lista);
 
 	swapb(&listb);
+	print_list(listb);
+
+	printf("push\n");
+	pusha(&lista, &listb);
+	print_list(lista);
+	print_list(listb);
+
+	pushb(&lista, &listb);
+	print_list(lista);
 	print_list(listb);
 
 	printf("rm node with val [%d]\n", rm_node(&lista));
