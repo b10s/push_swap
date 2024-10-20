@@ -24,56 +24,21 @@ void	print_err_and_exit(void)
 	exit(1);
 }
 
-//TODO return err if can't handle?
-// or exit immediately with Error msg
-void	add_node(t_node **head_ptr, int n)
+t_node	*parse_args(int argc, char *argv[])
 {
-	t_node	*node;
-	t_node	*head;
-
-	if (head_ptr == NULL)
-		print_err_and_exit();
-	head = *head_ptr;
-	node = malloc(sizeof(t_node));
-	if (node == NULL)
-		print_err_and_exit();
-	node->val = n;
-	if (head == NULL)
-	{
-		head = node;
-		node->next = node;
-		node->prev = node;
-	}
-	else
-	{
-		head->next->prev = node;
-		node->next = head->next;
-		head->next = node;
-		node->prev = head;
-		head = node;
-	}
-	*head_ptr = node;
-}
-
-int	rm_node(t_node **head_ptr)
-{
-	t_node	*head;
+	t_node	*list;
 	int			val;
+	int			i;
 
-	if (head_ptr == NULL)
-		print_err_and_exit();
-	head = *head_ptr;
-	if (head == NULL)
-		print_err_and_exit();
-	val = head->val;
-	if (head->prev == head)
-		*head_ptr = NULL;
-	else
+	list = NULL;
+	i = argc - 1;
+	while (i > 0)
 	{
-		head->prev->next = head->next;
-		head->next->prev = head->prev;
-		*head_ptr = head->prev;
+		//TODO use mine atoi
+		//TODO detect err; if returned 0 it might be a valid result or err
+		val = atoi(argv[i]);
+		add_node(&list, val);
+		i--;
 	}
-	free(head);
-	return (val);
+	return list;
 }
