@@ -23,6 +23,8 @@ void	rotate_ab(t_node **listba, t_node **listb);
 void	reverse_rotate_a(t_node **lista);
 void	reverse_rotate_b(t_node **listb);
 void	reverse_rotate_ab(t_node **lista, t_node **listb);
+// TODO remove test?
+void	test();
 
 /*
 sa (swap a): Swap the first 2 elements at the top of stack a.
