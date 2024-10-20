@@ -47,6 +47,15 @@ void main() {
 	print_list(lista);
 	print_list(listb);
 
+	printf("revers rotate\n");
+	reverse_rotate_a(&lista);
+	print_list(lista);
+	reverse_rotate_b(&listb);
+	print_list(listb);
+	reverse_rotate_ab(&lista, &listb);
+	print_list(lista);
+	print_list(listb);
+
 	printf("rm node with val [%d]\n", rm_node(&lista));
 	rotate_a(&lista);
 	print_list(lista);
