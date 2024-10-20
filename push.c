@@ -1,6 +1,6 @@
 #include "./push_swap.h"
 
-void	pusha(t_node **lista, t_node **listb)
+void	push_a(t_node **lista, t_node **listb)
 {
 	int			val_b;
 	t_node	*headb;
@@ -16,7 +16,7 @@ void	pusha(t_node **lista, t_node **listb)
 	add_node(lista, val_b);
 }
 
-void	pushb(t_node **lista, t_node **listb)
+void	push_b(t_node **lista, t_node **listb)
 {
 	int			val_a;
 	t_node	*heada;

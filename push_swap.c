@@ -30,16 +30,25 @@ void main() {
 	print_list(listb);
 
 	printf("push\n");
-	pusha(&lista, &listb);
+	push_a(&lista, &listb);
 	print_list(lista);
 	print_list(listb);
 
-	pushb(&lista, &listb);
+	push_b(&lista, &listb);
 	print_list(lista);
 	print_list(listb);
 
+	printf("rotate\n");
+	rotate_a(&lista);
+	print_list(lista);
+	rotate_b(&listb);
+	print_list(listb);
+
 	printf("rm node with val [%d]\n", rm_node(&lista));
+	rotate_a(&lista);
+	print_list(lista);
 	printf("rm node with val [%d]\n", rm_node(&lista));
+	rotate_a(&lista);
 	print_list(lista);
 }
 
