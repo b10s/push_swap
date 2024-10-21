@@ -7,6 +7,9 @@ typedef struct node {
 	struct node *prev;
 } t_node;
 
+#define FT_FORWARD 1
+#define FT_REVERSE 0
+
 void	print_list(t_node *root);
 void	print_err_and_exit(void);
 void	add_node(t_node **head_ptr, int n);
@@ -27,6 +30,8 @@ void	reverse_rotate_ab(t_node **lista, t_node **listb);
 void	test();
 t_node	*parse_args(int argc, char *argv[]);
 int	list_len(t_node	*list);
+void	sort_lists(t_node **list_a, t_node **list_b);
+int	need_swap(t_node *head, int direction);
 
 /*
 sa (swap a): Swap the first 2 elements at the top of stack a.

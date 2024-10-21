@@ -10,7 +10,6 @@ void main(int argc, char *argv[]) {
 	list_a = NULL;
 	list_b = NULL;
 	arr_len = argc - 1;
-	i = 0;
 
 	// TODO do I need to err here or empty list is ok?
 	// check PDF
@@ -23,16 +22,14 @@ void main(int argc, char *argv[]) {
 	// --- algo ---
 	//TODO test cases with 0, 1, 2, 3 elements?
 	//TODO test cases with even and odd arr_len
-	while (i < arr_len / 2)
-	{
+	i = 0;
+	while (i++ < arr_len / 2)
 		push_b(&list_a, &list_b);
-		i++;
-	}
+
 	print_list(list_a);
 	print_list(list_b);
-	printf("list len [%d]\n", list_len(list_b));
 
-	//bubble();
+	sort_lists(&list_a, &list_b);
 	//merge();
 
 
@@ -47,6 +44,97 @@ void main(int argc, char *argv[]) {
 		implement bubble sort using sa, sb or ss
 		merge back b into a
 	*/
+}
+
+//TODO test if list len is not equal
+void	sort_lists(t_node **list_a, t_node **list_b)
+{
+	int	list_a_len;
+	int	list_b_len;
+	int	loops;
+	int	elements;
+	int	direction;
+	t_node	*orig_head_list_a;
+	t_node	*orig_head_list_b;
+
+	orig_head_list_a = *list_a;
+	orig_head_list_b = *list_b;
+
+	direction = FT_FORWARD;
+	list_a_len = list_len(*list_a);
+	list_b_len = list_len(*list_b);
+	printf("list_a len [%d], list_b len[%d]\n", list_a_len, list_b_len);
+	loops = list_a_len - 2;
+	while(loops >= 0)
+	{
+		//loop over lists
+		//cehck if we need to swap a, b or both
+		//rotate forward or back depends on flag
+		elements = loops;
+		while(elements >= 0)
+		{
+			printf("loops [%d], elements [%d]\n", loops, elements);
+			// if elements == 0 we can only swap but not rotate!
+
+			// need swap a? need swap b? need swap both?
+			// do swap
+			print_list(orig_head_list_a);
+			print_list(orig_head_list_b);
+			if (direction == FT_REVERSE)
+				reverse_rotate_ab(list_a, list_b);
+			if (need_swap(*list_a, direction) == 1)
+			{
+				printf("need to swap A!\n");
+				swapa(list_a);
+			}
+			if (need_swap(*list_b, direction) == 1)
+			{
+				printf("need to swap B!\n");
+				swapb(list_b);
+			}
+			if (direction == FT_FORWARD && elements != 0)
+				rotate_ab(list_a, list_b);
+			print_list(orig_head_list_a);
+			print_list(orig_head_list_b);
+
+			// do rotate or reverse rotate
+			elements--;
+		}
+
+		if (direction == FT_FORWARD)
+			direction = FT_REVERSE;
+		else
+			direction = FT_FORWARD;
+		loops--;
+	}
+	//TODO rewind to original head
+	//last one?
+}
+
+int	need_swap(t_node *head, int direction)
+{
+	int	value;
+	if(head == NULL)
+		return 0;
+	if (head == head->next)
+		return 0;
+
+	//FORWAR: from top to down, smalles goes down
+	if (direction == FT_FORWARD)
+	{
+		value = head->prev->val;
+		printf("FWD: head val [%d], next val [%d]\n", head->val, value);
+		if (value > head->val)
+			return 1;
+	}
+	else
+	{
+		value = head->prev->val;
+		printf("REV: head val [%d], prev val [%d]\n", head->val, value);
+		if (value > head->val)
+			return 1;
+	}
+	return 0;
 }
 
 //TODO try on 10 elements
