@@ -112,8 +112,10 @@ void	sort_lists(t_node **list_a, t_node **list_b)
 			direction = FT_FORWARD;
 		loops--;
 	}
-	//TODO rewind to original head
-	//last one?
+	//TODO: rewind to original head!!!
+	//TODO: verify it is within a limit for 5 elements, 10 elements, etc
+	//TODO: emulate worst case scenario
+	//TODO: ensure it works when lists are of different len
 }
 
 int	need_swap(t_node *head, int direction)
