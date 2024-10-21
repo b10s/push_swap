@@ -119,21 +119,10 @@ int	need_swap(t_node *head, int direction)
 	if (head == head->next)
 		return 0;
 
-	//FORWAR: from top to down, smalles goes down
-	if (direction == FT_FORWARD)
-	{
-		value = head->prev->val;
-		printf("FWD: head val [%d], next val [%d]\n", head->val, value);
-		if (value > head->val)
-			return 1;
-	}
-	else
-	{
-		value = head->prev->val;
-		printf("REV: head val [%d], prev val [%d]\n", head->val, value);
-		if (value > head->val)
-			return 1;
-	}
+	value = head->prev->val;
+	printf("FWD: head val [%d], next val [%d]\n", head->val, value);
+	if (value > head->val)
+		return 1;
 	return 0;
 }
 
