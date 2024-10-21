@@ -30,6 +30,9 @@ void main(int argc, char *argv[]) {
 	print_list(list_b);
 
 	sort_lists(&list_a, &list_b);
+
+	//print_list(list_a);
+	//print_list(list_b);
 	//merge();
 
 
@@ -64,16 +67,16 @@ void	sort_lists(t_node **list_a, t_node **list_b)
 	list_a_len = list_len(*list_a);
 	list_b_len = list_len(*list_b);
 	printf("list_a len [%d], list_b len[%d]\n", list_a_len, list_b_len);
-	loops = list_a_len - 2;
-	while(loops >= 0)
+	loops = list_a_len - 1;
+	while(loops > 0)
 	{
 		//loop over lists
 		//cehck if we need to swap a, b or both
 		//rotate forward or back depends on flag
 		elements = loops;
-		while(elements >= 0)
+		while(elements > 0)
 		{
-			printf("loops [%d], elements [%d]\n", loops, elements);
+			printf("\nloops [%d], elements [%d]\n", loops, elements);
 			// if elements == 0 we can only swap but not rotate!
 
 			// need swap a? need swap b? need swap both?
@@ -92,7 +95,9 @@ void	sort_lists(t_node **list_a, t_node **list_b)
 				printf("need to swap B!\n");
 				swapb(list_b);
 			}
-			if (direction == FT_FORWARD && elements != 0)
+			if (direction == FT_FORWARD && elements != 1)
+				rotate_ab(list_a, list_b);
+			if (direction == FT_REVERSE && elements == 1)
 				rotate_ab(list_a, list_b);
 			print_list(orig_head_list_a);
 			print_list(orig_head_list_b);
@@ -114,13 +119,18 @@ void	sort_lists(t_node **list_a, t_node **list_b)
 int	need_swap(t_node *head, int direction)
 {
 	int	value;
+	char *dr;
+
+	dr = "FWD";
+	if (direction == FT_REVERSE)
+		dr = "REV";
 	if(head == NULL)
 		return 0;
 	if (head == head->next)
 		return 0;
 
 	value = head->prev->val;
-	printf("FWD: head val [%d], next val [%d]\n", head->val, value);
+	printf("direction [%s], head val [%d], next val [%d]\n", dr, head->val, value);
 	if (value > head->val)
 		return 1;
 	return 0;
@@ -137,7 +147,8 @@ int	need_swap(t_node *head, int direction)
 
 /*
 
-make re && ./push_swap 1 42 5 10 3 0 -1 100
+//TODO check why it is not sorted?
+make re && ./push_swap 1 3 2 5 -1 -2 0 7 11 12
 
 ga *.c *.h Makefile
 
