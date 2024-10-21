@@ -26,6 +26,7 @@ void	reverse_rotate_ab(t_node **lista, t_node **listb);
 // TODO remove test?
 void	test();
 t_node	*parse_args(int argc, char *argv[]);
+int	list_len(t_node	*list);
 
 /*
 sa (swap a): Swap the first 2 elements at the top of stack a.

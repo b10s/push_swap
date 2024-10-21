@@ -42,3 +42,23 @@ t_node	*parse_args(int argc, char *argv[])
 	}
 	return list;
 }
+
+int	list_len(t_node	*list)
+{
+	t_node	*head;
+	t_node	*cur;
+	int			res;
+
+	if (list == NULL)
+		return (0);
+	res = 1;
+	head = list;
+	cur = list;
+	while( head != cur->prev)
+	{
+		res++;
+		cur = cur->prev;
+	}
+
+	return (res);
+}

@@ -30,6 +30,7 @@ void main(int argc, char *argv[]) {
 	}
 	print_list(list_a);
 	print_list(list_b);
+	printf("list len [%d]\n", list_len(list_b));
 
 	//bubble();
 	//merge();
