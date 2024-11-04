@@ -1,5 +1,29 @@
 #include "./push_swap.h"
 
+t_node	*parse_args(int argc, char *argv[]);
+void		print_list(t_node *root);
+void		print_err_and_exit(void);
+int			list_len(t_node	*list);
+
+t_node	*parse_args(int argc, char *argv[])
+{
+	t_node	*list;
+	int			val;
+	int			i;
+
+	list = NULL;
+	i = argc - 1;
+	while (i > 0)
+	{
+		//TODO use mine atoi
+		//TODO detect err; if returned 0 it might be a valid result or err
+		val = atoi(argv[i]);
+		add_node(&list, val);
+		i--;
+	}
+	return list;
+}
+
 void	print_list(t_node *root)
 {
 	t_node	*node;
@@ -22,25 +46,6 @@ void	print_err_and_exit(void)
 	// pass message? (read PDF)
 	printf("Error\n");
 	exit(1);
-}
-
-t_node	*parse_args(int argc, char *argv[])
-{
-	t_node	*list;
-	int			val;
-	int			i;
-
-	list = NULL;
-	i = argc - 1;
-	while (i > 0)
-	{
-		//TODO use mine atoi
-		//TODO detect err; if returned 0 it might be a valid result or err
-		val = atoi(argv[i]);
-		add_node(&list, val);
-		i--;
-	}
-	return list;
 }
 
 int	list_len(t_node	*list)
