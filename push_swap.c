@@ -1,7 +1,7 @@
 #include "./push_swap.h"
 
 //TODO parse args
-void main(int argc, char *argv[]) {
+int main(int argc, char *argv[]) {
 	t_node	*list_a;
 	t_node	*list_b;
 	int			arr_len;
@@ -49,7 +49,7 @@ void main(int argc, char *argv[]) {
 	*/
 }
 
-//TODO test if list len is not equal
+//TODO test if lists len is not equal
 void	sort_lists(t_node **list_a, t_node **list_b)
 {
 	int	list_a_len;
@@ -57,6 +57,8 @@ void	sort_lists(t_node **list_a, t_node **list_b)
 	int	loops;
 	int	elements;
 	int	direction;
+	int need_of_swap_a;
+	int need_of_swap_b;
 	t_node	*orig_head_list_a;
 	t_node	*orig_head_list_b;
 
@@ -85,15 +87,27 @@ void	sort_lists(t_node **list_a, t_node **list_b)
 			print_list(orig_head_list_b);
 			if (direction == FT_REVERSE)
 				reverse_rotate_ab(list_a, list_b);
-			if (need_swap(*list_a, direction) == 1)
+			need_of_swap_a = need_swap(*list_a, direction);
+			need_of_swap_b = need_swap(*list_b, direction);
+
+			if ( need_of_swap_a && need_of_swap_b )
+			{
+				printf("need to swap A and B!\n");
+				swapab(list_a, list_b);
+			}
+			else if (need_of_swap_a)
 			{
 				printf("need to swap A!\n");
 				swapa(list_a);
 			}
-			if (need_swap(*list_b, direction) == 1)
+			else if (need_of_swap_b)
 			{
 				printf("need to swap B!\n");
 				swapb(list_b);
+			}
+			else
+			{
+				printf("no need to swap\n");
 			}
 			if (direction == FT_FORWARD && elements != 1)
 				rotate_ab(list_a, list_b);
