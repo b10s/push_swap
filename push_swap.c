@@ -2,6 +2,8 @@
 
 //TODO parse args
 int main(int argc, char *argv[]) {
+
+	//printf("argv: [%s] [%s]\n", argv[0], argv[1]);
 	t_node	*list_a;
 	t_node	*list_b;
 	int			arr_len;
@@ -13,12 +15,16 @@ int main(int argc, char *argv[]) {
 	list_b = NULL;
 	arr_len = argc - 1;
 
+	//printf("argc [%d]\n", argc);
+
 	// TODO do I need to err here or empty list is ok?
 	//TODO handle all errors
 	// check PDF
 	if (argc < 2)
 		print_err_and_exit();
 
+	//TODO cases for 1, 2, 3, 4, 5 and 6 numbers
+	//TODO test all from link shared by Ren
 	remap = buble_sort(argc, argv);
 	if (remap == NULL)
 		print_err_and_exit();
@@ -66,15 +72,19 @@ int main(int argc, char *argv[]) {
 int	calc_bits(int len)
 {
 	int	res;
+	int	bits;
 	res = 2;
+	bits = 2;
 	for(;;)
 	{
 		if (res == len)
-			return res;
+			return bits;
 		if (res > len)
-			return res/2;
+			return bits - 1;
 		res = res * 2;
+		bits++;
 	}
+	return bits;
 }
 
 
