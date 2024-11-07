@@ -1,11 +1,12 @@
 #include "./push_swap.h"
 
-t_node	*parse_args(int argc, char *argv[]);
+t_node	*parse_args(int argc, char *argv[], int *remap);
 void		print_list(t_node *root);
 void		print_err_and_exit(void);
 int			list_len(t_node	*list);
+int			find_idx(int val, int *remap, int len);
 
-t_node	*parse_args(int argc, char *argv[])
+t_node	*parse_args(int argc, char *argv[], int *remap)
 {
 	t_node	*list;
 	int			val;
@@ -18,10 +19,23 @@ t_node	*parse_args(int argc, char *argv[])
 		//TODO use mine atoi
 		//TODO detect err; if returned 0 it might be a valid result or err
 		val = atoi(argv[i]);
+		val = find_idx(val, remap, argc - 1);
 		add_node(&list, val);
 		i--;
 	}
 	return list;
+}
+
+int	find_idx(int val, int *remap, int len)
+{
+	int	i;
+
+	for (i=0; i<len; i++)
+	{
+		if (val == remap[i])
+			return i;
+	}
+	return -1;
 }
 
 void	print_list(t_node *root)
