@@ -1,8 +1,6 @@
 #include "./push_swap.h"
 #include <string.h>
 
-//TODO: use mine atoi and strlen
-
 int	args_are_valid(int argc, char *argv[])
 {
 	int	i;	
@@ -10,7 +8,7 @@ int	args_are_valid(int argc, char *argv[])
 
 	for(i = 1; i < argc; i++)
 	{
-		if (strlen(argv[i]) == 1)
+		if (argv[i][0] != '\0' && argv[i][1] == '\0')
 		{
 			if (argv[i][0] == '0')
 				continue;

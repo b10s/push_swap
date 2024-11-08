@@ -16,9 +16,7 @@ t_node	*parse_args(int argc, char *argv[], int *remap)
 	i = argc - 1;
 	while (i > 0)
 	{
-		//TODO use mine atoi
-		//TODO detect err; if returned 0 it might be a valid result or err
-		val = atoi(argv[i]);
+		val = ft_atoi(argv[i]);
 		val = find_idx(val, remap, argc - 1);
 		add_node(&list, val);
 		i--;
