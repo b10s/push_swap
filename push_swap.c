@@ -6,34 +6,28 @@
 /*   By: aenshin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 01:21:54 by aenshin           #+#    #+#             */
-/*   Updated: 2024/11/09 01:26:50 by aenshin          ###   ########.fr       */
+/*   Updated: 2024/11/09 01:34:02 by aenshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
 
+void	big_sort(int argc, t_node *list_a, t_node *list_b);
+
 int	main(int argc, char *argv[])
 {
 	t_node	*list_a;
 	t_node	*list_b;
-	int		arr_len;
 	int		i;
 	int		*remap;
-	int		bits;
-	int		stack_b_len;
-	int		j;
 
-	stack_b_len = 0;
 	list_a = NULL;
 	list_b = NULL;
-	arr_len = argc - 1;
 	if (argc < 2)
 		return (0);
 	if (args_are_valid(argc, argv) != 1)
 		print_err_and_exit();
 	remap = buble_sort(argc, argv);
-	if (remap == NULL)
-		print_err_and_exit();
 	i = 0;
 	while (++i < argc)
 		if (remap[i - 1] == remap[i])
@@ -42,10 +36,20 @@ int	main(int argc, char *argv[])
 		return (0);
 	list_a = parse_args(argc, argv, remap);
 	if (argc - 1 <= 5)
-	{
 		simple_sort(list_a, list_b, argc - 1);
-		return (0);
-	}
+	else
+		big_sort(argc, list_a, list_b);
+	free_list(list_a);
+	free(remap);
+}
+
+void	big_sort(int argc, t_node *list_a, t_node *list_b)
+{
+	int		bits;
+	int		i;
+	int		stack_b_len;
+	int		j;
+
 	bits = calc_bits(argc - 1);
 	i = -1;
 	while (++i < bits)
@@ -66,8 +70,6 @@ int	main(int argc, char *argv[])
 		while (++j < stack_b_len)
 			push_a(&list_a, &list_b);
 	}
-	free_list(list_a);
-	free(remap);
 }
 
 int	calc_bits(int len)
