@@ -39,6 +39,9 @@ int	sorted(int argc, char *argv[]);
 int	args_are_valid(int argc, char *argv[]);
 long	ft_atoi(const char *str);
 void	simple_sort(t_node *list_a, t_node *list_b, int len);
+int	get_distance(t_node **stack, int index);
+int	is_sorted(t_node **stack);
+void	sort_5(t_node **stack_a, t_node **stack_b);
 
 /*
 sa (swap a): Swap the first 2 elements at the top of stack a.

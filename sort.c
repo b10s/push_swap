@@ -2,6 +2,7 @@
 
 void	sort_3(t_node **stack_a);
 static int	get_min(t_node *stack, int val);
+void	sort_4(t_node **stack_a, t_node **stack_b);
 
 void	simple_sort(t_node *list_a, t_node *list_b, int len)
 {
@@ -10,9 +11,75 @@ void	simple_sort(t_node *list_a, t_node *list_b, int len)
 	else if (len == 3)
 		sort_3(&list_a);
 	else if (len == 4)
-		len++;
+		sort_4(&list_a, &list_b);
 	else if (len == 5)
-		len++;
+		sort_5(&list_a, &list_b);
+}
+
+void	sort_5(t_node **stack_a, t_node **stack_b)
+{
+	int	distance;
+
+	distance = get_distance(stack_a, get_min(*stack_a, -1));
+	if (distance == 1)
+		rotate_a(stack_a);
+		//ra(stack_a);
+	else if (distance == 2)
+	{
+		rotate_a(stack_a);
+		rotate_a(stack_a);
+		//ra(stack_a);
+		//ra(stack_a);
+	}
+	else if (distance == 3)
+	{
+		reverse_rotate_a(stack_a);
+		reverse_rotate_a(stack_a);
+		//rra(stack_a);
+		//rra(stack_a);
+	}
+	else if (distance == 4)
+		reverse_rotate_a(stack_a);
+		//rra(stack_a);
+	if (is_sorted(stack_a))
+		return ;
+	push_b(stack_a, stack_b);
+	//pb(stack_a, stack_b);
+	sort_4(stack_a, stack_b);
+	push_a(stack_a, stack_b);
+	//pa(stack_a, stack_b);
+}
+
+void	sort_4(t_node **stack_a, t_node **stack_b)
+{
+	//printf("sort 4!\n");
+	int	distance;
+
+	distance = get_distance(stack_a, get_min(*stack_a, -1));
+	//printf("distance [%d]\n", distance);
+	//print_list(*stack_a);
+	if (distance == 1)
+		rotate_a(stack_a);
+		//ra(stack_a);
+	else if (distance == 2)
+	{
+		rotate_a(stack_a);
+		rotate_a(stack_a);
+		//ra(stack_a);
+		//ra(stack_a);
+	}
+	else if (distance == 3)
+		reverse_rotate_a(stack_a);
+		//rra(stack_a);
+	//TODO implement is_sorted
+	if (is_sorted(stack_a) == 1)
+		return ;
+	//print_list(*stack_a);
+	push_b(stack_a, stack_b);
+	//pb(stack_a, stack_b);
+	sort_3(stack_a);
+	push_a(stack_a, stack_b);
+	//pa(stack_a, stack_b);
 }
 
 void	sort_3(t_node **stack_a)
