@@ -19,22 +19,19 @@ void	swap(t_node **head_ptr)
 
 void	swapa(t_node **lista_ptr)
 {
-	//TODO my printf
-	printf("sa\n");
+	write(1, "sa\n", 3);
 	swap(lista_ptr);
 }
 
 void	swapb(t_node **listb_ptr)
 {
-	//TODO my printf
-	printf("sb\n");
+	write(1, "sb\n", 3);
 	swap(listb_ptr);
 }
 
 void	swapab(t_node **lista_ptr, t_node **listb_ptr)
 {
-	//TODO my printf
-	printf("ss\n");
+	write(1, "ss\n", 3);
 	swap(lista_ptr);
 	swap(listb_ptr);
 }

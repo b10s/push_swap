@@ -38,27 +38,9 @@ int	find_idx(int val, int *remap, int len)
 	return -1;
 }
 
-void	print_list(t_node *root)
-{
-	t_node	*node;
-
-	node = root;
-	while (node != NULL)
-	{
-		//TODO my printf
-		printf("%d -> ", node->val);
-		node = node->prev;
-		if (node == root)
-			break ;
-	}
-	printf("\n");
-}
-
 void	print_err_and_exit(void)
 {
-	//TODO use my printf
-	// pass message? (read PDF)
-	printf("Error\n");
+	write(1, "Error\n", 6);
 	exit(1);
 }
 

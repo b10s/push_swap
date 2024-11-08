@@ -16,7 +16,6 @@ int	args_are_valid(int argc, char *argv[])
 				continue;
 		}
 		res = ft_atoi(argv[i]);
-		//printf("res [%ld]\n", res);
 		if (res == 0)
 			return (0);
 		if (res < -2147483648 || res > 2147483647)
