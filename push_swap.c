@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
 	//TODO handle all errors
 	// check PDF
 	if (argc < 2)
-		print_err_and_exit();
+		return (0);
 	if (args_are_valid(argc, argv) != 1)
 		print_err_and_exit();
 
@@ -84,7 +84,6 @@ int main(int argc, char *argv[]) {
 	//print_list(list_a);
 	//print_list(list_b);
 	free_list(list_a);
-	free_list(list_b);
 	free(remap);
 }
 

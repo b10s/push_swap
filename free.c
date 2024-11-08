@@ -11,6 +11,7 @@ void free_list(t_node *list)
 
 	while(tmp != head)
 	{
+		//printf("%p\n", tmp->next);
 		free(tmp->next);	
 		tmp = tmp->prev;
 	}
