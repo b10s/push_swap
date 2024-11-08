@@ -1,8 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aenshin <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/09 00:51:45 by aenshin           #+#    #+#             */
+/*   Updated: 2024/11/09 00:57:43 by aenshin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "./push_swap.h"
 
 void	sort_3(t_node **stack_a);
-static int	get_min(t_node *stack, int val);
+int		get_min(t_node *stack, int val);
 void	sort_4(t_node **stack_a, t_node **stack_b);
+void	sort_3_norm(t_node **stack_a);
 
 void	simple_sort(t_node *list_a, t_node *list_b, int len)
 {
@@ -87,17 +100,29 @@ void	sort_3(t_node **stack_a)
 	}
 	else
 	{
-		if (head->prev->val == min)
-			rotate_a(stack_a);
-		else
-		{
-			swapa(stack_a);
-			reverse_rotate_a(stack_a);
-		}
+		printf("aaa");
+		sort_3_norm(stack_a);
 	}
 }
 
-static int	get_min(t_node *stack, int val)
+void sort_3_norm(t_node **stack_a)
+{
+	printf("aaa");
+	t_node	*head;
+	int		min;
+
+	head = *stack_a;
+	min = get_min(*stack_a, -1);
+	if (head->prev->val == min)
+		rotate_a(stack_a);
+	else
+	{
+		swapa(stack_a);
+		reverse_rotate_a(stack_a);
+	}
+}
+
+int	get_min(t_node *stack, int val)
 {
 	t_node	*head;
 	t_node *tmp;

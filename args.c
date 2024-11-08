@@ -1,23 +1,40 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   args.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aenshin <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/09 00:47:16 by aenshin           #+#    #+#             */
+/*   Updated: 2024/11/09 01:05:07 by aenshin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "./push_swap.h"
 #include <string.h>
 
 int	args_are_valid(int argc, char *argv[])
 {
-	int	i;	
+	int		i;	
 	long	res;
 
-	for(i = 1; i < argc; i++)
+	i = 1;
+	while (i < argc)
 	{
 		if (argv[i][0] != '\0' && argv[i][1] == '\0')
 		{
 			if (argv[i][0] == '0')
-				continue;
+			{
+				i++;
+				continue ;
+			}
 		}
 		res = ft_atoi(argv[i]);
 		if (res == 0)
 			return (0);
 		if (res < -2147483648 || res > 2147483647)
 			return (0);
+		i++;
 	}
 	return (1);
 }

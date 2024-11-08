@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   swap.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aenshin <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/09 00:51:25 by aenshin           #+#    #+#             */
+/*   Updated: 2024/11/09 00:51:33 by aenshin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "./push_swap.h"
 
 void	swap(t_node **head_ptr)
@@ -8,9 +20,9 @@ void	swap(t_node **head_ptr)
 	if (head_ptr == NULL)
 		print_err_and_exit();
 	if (*head_ptr == NULL)
-		return;
+		return ;
 	if ((*head_ptr)->next == *head_ptr)
-		return;
+		return ;
 	val1 = rm_node(head_ptr);
 	val2 = rm_node(head_ptr);
 	add_node(head_ptr, val1);
