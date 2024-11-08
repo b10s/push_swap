@@ -1,13 +1,36 @@
-NAME := push_swap
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: aenshin <marvin@42.fr>                     +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/11/09 01:44:34 by aenshin           #+#    #+#              #
+#    Updated: 2024/11/09 01:45:55 by aenshin          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-all: $(NAME)
+NAME = push_swap
 
-# TODO remove test.c ?
-$(NAME):
-	@cc -o push_swap push_swap.c utils.c swap.c push.c rotate.c reverse_rotate.c core.c sort2.c sort.c args.c simple_utils.c free.c
+SRCS =  $(wildcard *.c)
 
-re: clean all
+OBJS = ${SRCS:.c=.o}
 
-clean:
-	@rm -f push_swap
-	@find . -name '*.swp' -delete
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror -Iincludes
+
+RM = rm -rf
+
+all: ${NAME}
+${NAME}: ${OBJS}
+	@${CC} ${CFLAGS} ${OBJS} -o ${NAME}
+
+clean: 
+	@${RM} ${OBJS}
+
+fclean: clean
+	@${RM} ${NAME}
+
+re: fclean all
+
+.PHONY: all clean fclean re
