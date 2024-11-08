@@ -1,6 +1,5 @@
 #include "./push_swap.h"
 
-//TODO error on wrong args: no numbers, - -1, etc
 //TODO do for 1, 2, 3, 4, 5 and 6 elements
 //TODO double verify with site
 //TODO replace with my functions
@@ -33,10 +32,13 @@ int main(int argc, char *argv[]) {
 	//TODO cases for 1, 2, 3, 4, 5 and 6 numbers
 	//TODO test all from link shared by Ren
 	remap = buble_sort(argc, argv);
-	if (sorted(argc, argv) == 1)
-		return 0;
 	if (remap == NULL)
 		print_err_and_exit();
+	for (i = 1; i < argc; i++)
+		if (remap[i-1] == remap[i])
+			print_err_and_exit();
+	if (sorted(argc, argv) == 1)
+		return 0;
 
 	list_a = parse_args(argc, argv, remap);
 	//TODO sort args

@@ -37,6 +37,7 @@ void	print_arr(int *arr, int len);
 int		calc_bits(int len);
 int	sorted(int argc, char *argv[]);
 int	args_are_valid(int argc, char *argv[]);
+long	ft_atoi(const char *str);
 
 /*
 sa (swap a): Swap the first 2 elements at the top of stack a.
