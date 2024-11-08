@@ -4,7 +4,7 @@ all: $(NAME)
 
 # TODO remove test.c ?
 $(NAME):
-	@cc -o push_swap push_swap.c utils.c swap.c push.c rotate.c reverse_rotate.c core.c sort.c args.c simple_utils.c free.c
+	@cc -o push_swap push_swap.c utils.c swap.c push.c rotate.c reverse_rotate.c core.c sort2.c sort.c args.c simple_utils.c free.c
 
 re: clean all
 
