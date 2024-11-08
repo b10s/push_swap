@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rotate.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aenshin <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/09 01:19:23 by aenshin           #+#    #+#             */
+/*   Updated: 2024/11/09 01:19:39 by aenshin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "./push_swap.h"
 
 void	rotate(t_node **head_ptr)
@@ -8,9 +20,9 @@ void	rotate(t_node **head_ptr)
 		print_err_and_exit();
 	head = *head_ptr;
 	if (head == NULL)
-		return;
+		return ;
 	if (head->prev == head)
-		return;
+		return ;
 	head = head->prev;
 	*head_ptr = head;
 }
@@ -33,4 +45,3 @@ void	rotate_ab(t_node **lista, t_node **listb)
 	rotate(lista);
 	rotate(listb);
 }
-

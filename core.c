@@ -1,7 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   core.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aenshin <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/09 01:21:02 by aenshin           #+#    #+#             */
+/*   Updated: 2024/11/09 01:21:14 by aenshin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "./push_swap.h"
 
-//TODO return err if can't handle?
-// or exit immediately with Error msg
 void	add_node(t_node **head_ptr, int n)
 {
 	t_node	*node;
@@ -34,7 +44,7 @@ void	add_node(t_node **head_ptr, int n)
 int	rm_node(t_node **head_ptr)
 {
 	t_node	*head;
-	int			val;
+	int		val;
 
 	if (head_ptr == NULL)
 		print_err_and_exit();
@@ -53,4 +63,3 @@ int	rm_node(t_node **head_ptr)
 	free(head);
 	return (val);
 }
-
