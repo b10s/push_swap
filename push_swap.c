@@ -27,6 +27,8 @@ int main(int argc, char *argv[]) {
 	// check PDF
 	if (argc < 2)
 		print_err_and_exit();
+	if (args_are_valid(argc, argv) != 1)
+		print_err_and_exit();
 
 	//TODO cases for 1, 2, 3, 4, 5 and 6 numbers
 	//TODO test all from link shared by Ren
