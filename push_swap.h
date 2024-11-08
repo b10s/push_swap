@@ -42,6 +42,7 @@ void	simple_sort(t_node *list_a, t_node *list_b, int len);
 int	get_distance(t_node **stack, int index);
 int	is_sorted(t_node **stack);
 void	sort_5(t_node **stack_a, t_node **stack_b);
+void free_list(t_node *list);
 
 /*
 sa (swap a): Swap the first 2 elements at the top of stack a.

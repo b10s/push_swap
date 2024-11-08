@@ -1,6 +1,5 @@
 #include "./push_swap.h"
 
-//TODO do for 1, 2, 3, 4, 5 and 6 elements
 //TODO double verify with site
 //TODO replace with my functions
 //TODO makefile
@@ -84,6 +83,9 @@ int main(int argc, char *argv[]) {
 	//printf("FINAL\n");
 	//print_list(list_a);
 	//print_list(list_b);
+	free_list(list_a);
+	free_list(list_b);
+	free(remap);
 }
 
 int	calc_bits(int len)
