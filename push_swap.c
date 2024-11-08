@@ -5,7 +5,6 @@
 //TODO norm
 int main(int argc, char *argv[]) {
 
-	//printf("argv: [%s] [%s]\n", argv[0], argv[1]);
 	t_node	*list_a;
 	t_node	*list_b;
 	int			arr_len;

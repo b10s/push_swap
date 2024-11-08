@@ -23,68 +23,48 @@ void	sort_5(t_node **stack_a, t_node **stack_b)
 	distance = get_distance(stack_a, get_min(*stack_a, -1));
 	if (distance == 1)
 		rotate_a(stack_a);
-		//ra(stack_a);
 	else if (distance == 2)
 	{
 		rotate_a(stack_a);
 		rotate_a(stack_a);
-		//ra(stack_a);
-		//ra(stack_a);
 	}
 	else if (distance == 3)
 	{
 		reverse_rotate_a(stack_a);
 		reverse_rotate_a(stack_a);
-		//rra(stack_a);
-		//rra(stack_a);
 	}
 	else if (distance == 4)
 		reverse_rotate_a(stack_a);
-		//rra(stack_a);
 	if (is_sorted(stack_a))
 		return ;
 	push_b(stack_a, stack_b);
-	//pb(stack_a, stack_b);
 	sort_4(stack_a, stack_b);
 	push_a(stack_a, stack_b);
-	//pa(stack_a, stack_b);
 }
 
 void	sort_4(t_node **stack_a, t_node **stack_b)
 {
-	//printf("sort 4!\n");
 	int	distance;
 
 	distance = get_distance(stack_a, get_min(*stack_a, -1));
-	//printf("distance [%d]\n", distance);
-	//print_list(*stack_a);
 	if (distance == 1)
 		rotate_a(stack_a);
-		//ra(stack_a);
 	else if (distance == 2)
 	{
 		rotate_a(stack_a);
 		rotate_a(stack_a);
-		//ra(stack_a);
-		//ra(stack_a);
 	}
 	else if (distance == 3)
 		reverse_rotate_a(stack_a);
-		//rra(stack_a);
-	//TODO implement is_sorted
 	if (is_sorted(stack_a) == 1)
 		return ;
-	//print_list(*stack_a);
 	push_b(stack_a, stack_b);
-	//pb(stack_a, stack_b);
 	sort_3(stack_a);
 	push_a(stack_a, stack_b);
-	//pa(stack_a, stack_b);
 }
 
 void	sort_3(t_node **stack_a)
 {
-	//printf("sort 3!\n");
 	t_node	*head;
 	int		min;
 	int		next_min;
@@ -92,44 +72,29 @@ void	sort_3(t_node **stack_a)
 	head = *stack_a;
 	min = get_min(*stack_a, -1);
 	next_min = get_min(*stack_a, min);
-	//printf("min [%d] next_min [%d]\n", min, next_min);
-	
-
-	//print_list(*stack_a);
-	//printf("[%d] [%d]\n", head->val, head->prev->val);
 	if (head->val == min && head->prev->val != next_min)
 	{
-		//printf("here!\n");
 		rotate_a(stack_a);
-		//ra(stack_a);
 		swapa(stack_a);
-		//sa(stack_a);
 		reverse_rotate_a(stack_a);
-		//rra(stack_a);
 	}
 	else if (head->val == next_min)
 	{
 		if (head->prev->val == min)
 			swapa(stack_a);
-			//sa(stack_a);
 		else
 			reverse_rotate_a(stack_a);
-			//rra(stack_a);
 	}
 	else
 	{
 		if (head->prev->val == min)
 			rotate_a(stack_a);
-			//ra(stack_a);
 		else
 		{
 			swapa(stack_a);
-			//sa(stack_a);
 			reverse_rotate_a(stack_a);
-			//rra(stack_a);
 		}
 	}
-	//print_list(*stack_a);
 }
 
 static int	get_min(t_node *stack, int val)
@@ -160,18 +125,14 @@ int	*buble_sort(int argc, char *argv[])
 	int	j;
 	int	x;
 
-	//printf("allocating for remap arr [%d] ints\n", argc - 1);
 	res = malloc(sizeof(int) * (argc - 1));
 	if (res == NULL)
 		return NULL;
 	for (i = 0; i < argc - 1; i++)
 	{
-		//TODO replace to mine
-		//TODO check for err
-		x = atoi(argv[i+1]);
+		x = ft_atoi(argv[i+1]);
 		res[i] = x;
 	}
-	//print_arr(res, argc-1);
 	for (i =0; i < argc - 2; i++)
 	{
 		for (j = 0; j < argc - 2; j++)
@@ -184,20 +145,7 @@ int	*buble_sort(int argc, char *argv[])
 			}
 		}
 	}
-	//print_arr(res, argc-1);
 	return res;
-}
-
-void	print_arr(int *arr, int len)
-{
-	int	i;
-	for(i = 0; i < len; i++)
-	{
-		//TODO replace with mine
-		printf("%d ", arr[i]);
-	}
-	//TODO replace with mine
-	printf("\n");
 }
 
 int	sorted(int argc, char *argv[])
@@ -208,9 +156,8 @@ int	sorted(int argc, char *argv[])
 
 	for (i = 1; i < argc; i++)
 	{
-		pre = atoi(argv[i-1]);
-		cur = atoi(argv[i]);
-		//printf("pre [%d] cur [%d]\n", pre, cur);
+		pre = ft_atoi(argv[i-1]);
+		cur = ft_atoi(argv[i]);
 		if (pre > cur)
 			return (0);
 	}

@@ -5,8 +5,7 @@ void	push_a(t_node **lista, t_node **listb)
 	int			val_b;
 	t_node	*headb;
 
-	//TODO use my printf
-	printf("pa\n");
+	write(1, "pa\n", 3);
 	if (listb == NULL)
 		print_err_and_exit();
 	headb = *listb;
@@ -21,8 +20,7 @@ void	push_b(t_node **lista, t_node **listb)
 	int			val_a;
 	t_node	*heada;
 
-	//TODO use my printf
-	printf("pb\n");
+	write(1, "pb\n", 3);
 	if (lista == NULL)
 		print_err_and_exit();
 	heada = *lista;

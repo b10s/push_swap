@@ -17,22 +17,19 @@ void	rotate(t_node **head_ptr)
 
 void	rotate_a(t_node **lista)
 {
-	//TODO use my printf
-	printf("ra\n");
+	write(1, "ra\n", 3);
 	rotate(lista);
 }
 
 void	rotate_b(t_node **listb)
 {
-	//TODO use my printf
-	printf("rb\n");
+	write(1, "rb\n", 3);
 	rotate(listb);
 }
 
 void	rotate_ab(t_node **lista, t_node **listb)
 {
-	//TODO use my printf
-	printf("rr\n");
+	write(1, "rr\n", 3);
 	rotate(lista);
 	rotate(listb);
 }

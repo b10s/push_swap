@@ -1,6 +1,5 @@
 #include "./push_swap.h"
 
-//TODO static for such func (rotate, swap)
 void	reverse_rotate(t_node **head_ptr)
 {
 	t_node	*head;
@@ -18,22 +17,19 @@ void	reverse_rotate(t_node **head_ptr)
 
 void	reverse_rotate_a(t_node **lista)
 {
-	//TODO use my printf
-	printf("rra\n");
+	write(1, "rra\n", 4);
 	reverse_rotate(lista);
 }
 
 void	reverse_rotate_b(t_node **listb)
 {
-	//TODO use my printf
-	printf("rrb\n");
+	write(1, "rrb\n", 4);
 	reverse_rotate(listb);
 }
 
 void	reverse_rotate_ab(t_node **lista, t_node **listb)
 {
-	//TODO use my printf
-	printf("rrr\n");
+	write(1, "rrr\n", 4);
 	reverse_rotate(lista);
 	reverse_rotate(listb);
 }
