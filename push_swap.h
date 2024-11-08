@@ -35,6 +35,7 @@ int	need_swap(t_node *head, int direction);
 int	*buble_sort(int argc, char *argv[]);
 void	print_arr(int *arr, int len);
 int		calc_bits(int len);
+int	sorted(int argc, char *argv[]);
 
 /*
 sa (swap a): Swap the first 2 elements at the top of stack a.

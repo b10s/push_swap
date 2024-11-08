@@ -1,6 +1,11 @@
 #include "./push_swap.h"
 
-//TODO parse args
+//TODO error on wrong args: no numbers, - -1, etc
+//TODO do for 1, 2, 3, 4, 5 and 6 elements
+//TODO double verify with site
+//TODO replace with my functions
+//TODO makefile
+//TODO norm
 int main(int argc, char *argv[]) {
 
 	//printf("argv: [%s] [%s]\n", argv[0], argv[1]);
@@ -26,6 +31,8 @@ int main(int argc, char *argv[]) {
 	//TODO cases for 1, 2, 3, 4, 5 and 6 numbers
 	//TODO test all from link shared by Ren
 	remap = buble_sort(argc, argv);
+	if (sorted(argc, argv) == 1)
+		return 0;
 	if (remap == NULL)
 		print_err_and_exit();
 

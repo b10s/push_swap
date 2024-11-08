@@ -47,3 +47,20 @@ void	print_arr(int *arr, int len)
 	//TODO replace with mine
 	printf("\n");
 }
+
+int	sorted(int argc, char *argv[])
+{
+	int	i;
+	int	pre;
+	int	cur;
+
+	for (i = 1; i < argc; i++)
+	{
+		pre = atoi(argv[i-1]);
+		cur = atoi(argv[i]);
+		//printf("pre [%d] cur [%d]\n", pre, cur);
+		if (pre > cur)
+			return (0);
+	}
+	return (1);
+}
