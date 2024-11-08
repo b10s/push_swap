@@ -38,6 +38,7 @@ int		calc_bits(int len);
 int	sorted(int argc, char *argv[]);
 int	args_are_valid(int argc, char *argv[]);
 long	ft_atoi(const char *str);
+void	simple_sort(t_node *list_a, t_node *list_b, int len);
 
 /*
 sa (swap a): Swap the first 2 elements at the top of stack a.

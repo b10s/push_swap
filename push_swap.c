@@ -41,6 +41,12 @@ int main(int argc, char *argv[]) {
 		return 0;
 
 	list_a = parse_args(argc, argv, remap);
+	if (argc - 1 <= 5)
+	{
+		simple_sort(list_a, list_b, argc - 1);
+		return (0);
+	}
+	
 	//TODO sort args
 	//TODO re-assign numbers in list_a
 	//print_list(list_a);
